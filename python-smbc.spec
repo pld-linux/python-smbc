@@ -7,6 +7,7 @@ Group:		Libraries/Python
 Source0:	http://cyberelk.net/tim/data/pysmbc/pysmbc-%{version}.tar.bz2
 # Source0-md5:	ac8f98a40b0fc4b6ab4470f10489887a
 URL:		http://cyberelk.net/tim/data/pysmbc/
+BuildRequires:	libsmbclient-devel
 BuildRequires:	python-devel >= 1:2.5
 BuildRequires:	python-setuptools
 BuildRequires:	rpm-pythonprov
