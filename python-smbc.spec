@@ -1,7 +1,7 @@
 Summary:	Python bindings for the libsmbclient API from Samba
 Name:		python-smbc
 Version:	1.0.6
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		Libraries/Python
 Source0:	http://cyberelk.net/tim/data/pysmbc/pysmbc-%{version}.tar.bz2
