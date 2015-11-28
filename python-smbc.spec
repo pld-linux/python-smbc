@@ -23,14 +23,12 @@ Python bindings for the libsmbclient API from Samba.
 %patch0 -p1
 
 %build
-CFLAGS="%{rpmcflags}"
-export CFLAGS
-python setup.py build
+%py_build
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-python setup.py install \
+%py_install \
 	--install-purelib=%{py_sitedir} \
 	--root=$RPM_BUILD_ROOT \
 	--optimize=2
