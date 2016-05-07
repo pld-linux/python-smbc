@@ -1,7 +1,7 @@
 Summary:	Python bindings for the libsmbclient API from Samba
 Name:		python-smbc
 Version:	1.0.13
-Release:	2
+Release:	3
 License:	GPL v2
 Group:		Libraries/Python
 Source0:	http://cyberelk.net/tim/data/pysmbc/pysmbc-%{version}.tar.bz2
@@ -9,6 +9,7 @@ Source0:	http://cyberelk.net/tim/data/pysmbc/pysmbc-%{version}.tar.bz2
 Patch0:		%{name}-memory_leak.patch
 URL:		http://cyberelk.net/tim/data/pysmbc/
 BuildRequires:	libsmbclient-devel
+BuildRequires:	pkgconfig
 BuildRequires:	python-devel >= 1:2.5
 BuildRequires:	python-setuptools
 BuildRequires:	rpm-pythonprov
@@ -23,15 +24,14 @@ Python bindings for the libsmbclient API from Samba.
 %patch0 -p1
 
 %build
+CFLAGS="%{rpmcflags} `pkg-config --cflags smbclient`"
+LDFLAGS="%{rpmldflags} `pkg-config --libs smbclient`"
 %py_build
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%py_install \
-	--install-purelib=%{py_sitedir} \
-	--root=$RPM_BUILD_ROOT \
-	--optimize=2
+%py_install
 
 %py_postclean
 
