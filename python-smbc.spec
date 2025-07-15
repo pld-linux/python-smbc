@@ -21,7 +21,7 @@ Python bindings for the libsmbclient API from Samba.
 
 %prep
 %setup -q -n pysmbc-%{version}
-%patch0 -p1
+%patch -P0 -p1
 
 %build
 CFLAGS="%{rpmcflags} `pkg-config --cflags smbclient`"
